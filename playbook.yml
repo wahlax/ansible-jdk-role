@@ -39,5 +39,5 @@
 
   - name: Setup Java environment
     ansible.builtin.template:
-      src: java.sh
+      src: java.sh.j2
       dest: /etc/profile.d/java.sh
