@@ -13,7 +13,7 @@
   tasks:
 
   - name: Download jdk with checksum (sha256)
-    get_url:
+    ansible.builtin.get_url:
       url: "{{jdk_download_url}}"
       dest: /tmp/jdk-{{jdk_version}}.tar.gz
       checksum: sha256:{{jdk_download_sha256}}
@@ -22,7 +22,7 @@
     ansible.builtin.file:
       path: /usr/local/java
       state: directory
-      mode: '0755'
+      mode: '755'
 
   - name: Unarchive jdk on the remote machine at /usr/local/java/
     ansible.builtin.unarchive:
@@ -38,6 +38,6 @@
       force: yes
 
   - name: Setup Java environment
-    template:
+    ansible.builtin.template:
       src: java.sh
       dest: /etc/profile.d/java.sh
