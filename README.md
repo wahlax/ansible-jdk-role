@@ -21,3 +21,7 @@ vagrant up
 ```
 vagrant provision
 ```
+
+## TODO
+
+ * Add default jdk and tomcat

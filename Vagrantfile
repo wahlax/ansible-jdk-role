@@ -71,10 +71,5 @@ Vagrant.configure("2") do |config|
   # Provisioning configuration for Ansible.
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
-    ansible.extra_vars = {
-      jdk_version: '11.0.12_7',
-      jdk_download_url: 'https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.12%2B7/OpenJDK11U-jdk_x64_linux_hotspot_11.0.12_7.tar.gz',
-      jdk_download_sha256: '8770f600fc3b89bf331213c7aa21f8eedd9ca5d96036d1cd48cb2748a3dbefd2'
-    }
   end
 end
