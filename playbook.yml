@@ -12,9 +12,6 @@
 
   tasks:
 
-  - name: Include variables
-    ansible.builtin.include_vars: variables.yml
-
   - name: Download jdk with checksum (sha256)
     ansible.builtin.get_url:
       url: "{{jdk_download_url}}"
