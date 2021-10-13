@@ -1,6 +1,6 @@
 # JDK with Ansible
 
-Start of a template for installing and configuring a JDK.
+Role for installting and configuring a JDK.
 
 ## Parameters
 
@@ -12,6 +12,8 @@ Start of a template for installing and configuring a JDK.
 
 Credit: Tested with vagrant image from [@geerlingguy's Ansible for Devops](https://github.com/geerlingguy/ansible-for-devops)
 
+Run the following from the test directory:
+
 ### Initial Install
 ```
 vagrant up
@@ -21,7 +23,3 @@ vagrant up
 ```
 vagrant provision
 ```
-
-## TODO
-
- * Add default jdk and tomcat
