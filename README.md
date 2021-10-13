@@ -1,6 +1,6 @@
 # JDK with Ansible
 
-Role for installting and configuring a JDK.
+Role for installing and configuring a JDK.
 
 ## Optional Parameters
 
