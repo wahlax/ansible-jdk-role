@@ -1,0 +1,39 @@
+---
+# Install JDK from download
+#
+# Parameters:
+#
+# jdk_version: 11.0.12_7
+# jdk_download_url: https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.12%2B7/OpenJDK11U-jdk_x64_linux_hotspot_11.0.12_7.tar.gz
+# jdk_download_sha256: 8770f600fc3b89bf331213c7aa21f8eedd9ca5d96036d1cd48cb2748a3dbefd2
+
+
+- name: Download jdk with checksum (sha256)
+  ansible.builtin.get_url:
+    url: "{{jdk_download_url}}"
+    dest: /tmp/jdk-{{jdk_version}}.tar.gz
+    checksum: sha256:{{jdk_download_sha256}}
+
+- name: Create directory at /usr/local/java if missing
+  ansible.builtin.file:
+    path: /usr/local/java
+    state: directory
+    mode: '755'
+
+- name: Unarchive jdk on the remote machine at /usr/local/java/
+  ansible.builtin.unarchive:
+    src: /tmp/jdk-{{jdk_version}}.tar.gz
+    dest: /usr/local/java
+    remote_src: yes
+
+- name: Create link from the installed version ot /usr/local/java/latest
+  ansible.builtin.file:
+    src: "/usr/local/java/jdk-{{ jdk_version | replace('_','+') }}"
+    dest: /usr/local/java/latest
+    state: link
+    force: yes
+
+- name: Setup Java environment
+  ansible.builtin.template:
+    src: java.sh.j2
+    dest: /etc/profile.d/java.sh
