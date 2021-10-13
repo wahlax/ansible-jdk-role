@@ -2,9 +2,7 @@
 
 Role for installting and configuring a JDK.
 
-##  Parameters
-
-Optional
+## Optional Parameters
 
  * `jdk_version` - Version of JDK
  * `jdk_download_url` - URL of tar.gz for release
