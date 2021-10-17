@@ -1,3 +1,10 @@
 ---
 
 dependencies: []
+
+galaxy_info:
+  role_name: jdk
+  author: wahlax
+  description: JDK install for linux
+  company: WAHLAX LLC
+  license: MIT
